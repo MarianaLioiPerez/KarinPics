@@ -1,0 +1,8 @@
+
+<h1>Galería de Fotos</h1>
+<% @photos.each do |photo| %>
+  <div>
+    <%= image_tag photo.image, class:"w-25"  %>
+    <h3><%= link_to photo.title, photo %></h3>
+  </div>
+<% end %>

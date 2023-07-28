@@ -1,0 +1,13 @@
+
+<h1><%= @photo.title %></h1>
+<p><%= @photo.description %></p>
+<%= image_tag @photo.image %>
+
+<% @comments.each do |comment| %>
+  <div>
+    <%= image_tag comment.user.avatar %>
+    <p><strong><%= comment.user.email %>:</strong> <%= comment.content %></p>
+  </div>
+<% end %>
+<%= render 'comments/form' %>
+
