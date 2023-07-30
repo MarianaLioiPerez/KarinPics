@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]
-    before_action :set_photo, only: [:show, :edit, :update, :destroy]
-    before_action :authorize_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_admin, only: [:new, :create, :edit, :update, :destroy]
 
     def index
       @photos = Photo.all
@@ -29,8 +29,9 @@ class PhotosController < ApplicationController
     private
 
     def set_photo
-        @photo = Photo.find(params[:id])
-      end
+      @photo = Photo.find_by(id: params[:id])
+      redirect_to root_path, alert: 'La foto no existe.' if @photo.nil?
+    end
   
     def photo_params
       params.require(:photo).permit(:title, :description, :image)

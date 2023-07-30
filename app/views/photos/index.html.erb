@@ -1,8 +1,13 @@
-
-<h1>Galería de Fotos</h1>
-<% @photos.each do |photo| %>
-  <div>
-    <%= image_tag photo.image, class:"w-25"  %>
-    <h3><%= link_to photo.title, photo %></h3>
-  </div>
-<% end %>
+<div class="photo-container">
+  <% @photos.each_slice(4) do |photos_slice| %>
+    <div class="row">
+      <% photos_slice.each do |photo| %>
+        <% if photo.persisted? %>
+          <div class="col-md-3">
+            <%= link_to image_tag(photo.image, class: "foto-show resized-photo"), photo %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

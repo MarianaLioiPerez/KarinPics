@@ -1,9 +1,7 @@
-
-<%= form_with(model: [@photo, @comment], local: true) do |form| %>
-  <div>
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <%= form.submit %>
-<% end %>
+<div class="container comentarios-show">
+    <%= form_with(model: [@photo, @comment], local: true) do |form| %>
+      <%= form.text_area :content %>
+      <div class="boton"><%= form.submit "Enviar" %></div>
+      </div>
+    <% end %>
+</div>

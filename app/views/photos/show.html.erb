@@ -1,13 +1,24 @@
 
-<h1><%= @photo.title %></h1>
-<p><%= @photo.description %></p>
-<%= image_tag @photo.image %>
+<h1 class="titulo-foto"><%= @photo.title %></h1>
+<!-- <p><%= @photo.description %></p> -->
+
+<%= image_tag rails_blob_path(@photo.image), class:"imagen container" %>
 
 <% @comments.each do |comment| %>
-  <div>
-    <%= image_tag comment.user.avatar %>
-    <p><strong><%= comment.user.email %>:</strong> <%= comment.content %></p>
+  <div class="comment-container">
+    <div class="avatar-container">
+      <% if comment.user.avatar.attached? %>
+        <%= image_tag comment.user.avatar, class: "avatar" %>
+      <% else %>
+        <%= image_tag "default_avatar.png", class: "avatar" %>
+      <% end %>
+    </div>
+    <div class="comment-content">
+      <p>
+        <strong><%= comment.user.email %>:</strong> <%= comment.content %>
+      </p>
+    </div>
   </div>
 <% end %>
-<%= render 'comments/form' %>
 
+<%= render 'comments/form' %>
