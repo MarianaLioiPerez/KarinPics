@@ -89,3 +89,13 @@
   .body-nueva-foto{
     background-color: #C2DEDC;
   }
+
+  .body-log-in{
+    text-align: center;
+  }
+
+  .titulo{
+    margin-top: 100px;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
