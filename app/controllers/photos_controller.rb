@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_kuser!, except: [:index, :show]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
   before_action :authorize_admin, only: [:new, :create, :edit, :update, :destroy]
 
@@ -18,7 +18,7 @@ class PhotosController < ApplicationController
     end
   
     def create
-      @photo = current_user.photos.build(photo_params)
+      @photo = current_kuser.photos.build(photo_params)
       if @photo.save
         redirect_to @photo, notice: 'La foto se ha subido correctamente.'
       else
@@ -38,7 +38,7 @@ class PhotosController < ApplicationController
     end
 
     def authorize_admin
-        redirect_to root_path, alert: 'Acceso no autorizado.' unless current_user.admin?
+        redirect_to root_path, alert: 'Acceso no autorizado.' unless current_kuser.admin?
       end
       
 

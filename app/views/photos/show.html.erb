@@ -7,15 +7,15 @@
 <% @comments.each do |comment| %>
   <div class="comment-container">
     <div class="avatar-container">
-      <% if comment.user.avatar.attached? %>
-        <%= image_tag comment.user.avatar, class: "avatar" %>
+      <% if comment.kuser.avatar.attached? %>
+        <%= image_tag comment.kuser.avatar, class: "avatar" %>
       <% else %>
         <%= image_tag "default_avatar.png", class: "avatar" %>
       <% end %>
     </div>
     <div class="comment-content">
       <p>
-        <strong><%= comment.user.email %>:</strong> <%= comment.content %>
+        <strong><%= comment.kuser.email %>:</strong> <%= comment.content %>
       </p>
     </div>
   </div>

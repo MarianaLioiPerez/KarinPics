@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_kuser!
   
     def create
       @photo = Photo.find(params[:photo_id])
       @comment = @photo.comments.build(comment_params)
-      @comment.user = current_user
+      @comment.kuser = current_kuser
   
       if @comment.save
         redirect_to @photo, notice: 'El comentario se ha creado correctamente.'
