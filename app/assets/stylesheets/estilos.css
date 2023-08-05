@@ -89,3 +89,12 @@
   .body-nueva-foto{
     background-color: #C2DEDC;
   }
+
+  .body-sign-up{
+    text-align: center;
+    background-color: #DAFFFB;
+  }
+
+  .titulo-sign-up{
+    margin-top: 80px;
+  }
