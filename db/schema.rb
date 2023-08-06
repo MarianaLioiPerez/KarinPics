@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_28_021747) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_06_000112) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,14 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_021747) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.text "content"
+  create_table "kcomments", force: :cascade do |t|
+    t.string "content"
     t.bigint "kuser_id", null: false
     t.bigint "photo_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["kuser_id"], name: "index_comments_on_kuser_id"
-    t.index ["photo_id"], name: "index_comments_on_photo_id"
+    t.index ["kuser_id"], name: "index_kcomments_on_kuser_id"
+    t.index ["photo_id"], name: "index_kcomments_on_photo_id"
   end
 
   create_table "kusers", force: :cascade do |t|
@@ -76,7 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_021747) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "kusers"
-  add_foreign_key "comments", "photos"
+  add_foreign_key "kcomments", "kusers"
+  add_foreign_key "kcomments", "photos"
   add_foreign_key "photos", "kusers"
 end

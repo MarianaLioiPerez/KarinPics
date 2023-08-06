@@ -4,21 +4,21 @@
 
 <%= image_tag rails_blob_path(@photo.image), class:"imagen container" %>
 
-<% @comments.each do |comment| %>
+<% @kcomments.each do |kcomment| %>
   <div class="comment-container">
     <div class="avatar-container">
-      <% if comment.kuser.avatar.attached? %>
-        <%= image_tag comment.kuser.avatar, class: "avatar" %>
+      <% if kcomment.kuser.avatar.attached? %>
+        <%= image_tag kcomment.kuser.avatar, class: "avatar" %>
       <% else %>
         <%= image_tag "default_avatar.png", class: "avatar" %>
       <% end %>
     </div>
     <div class="comment-content">
       <p>
-        <strong><%= comment.kuser.email %>:</strong> <%= comment.content %>
+        <strong><%= kcomment.kuser.email %>:</strong> <%= kcomment.content %>
       </p>
     </div>
   </div>
 <% end %>
 
-<%= render 'comments/form' %>
+<%= render 'kcomments/form', kcomment: @kcomment %>

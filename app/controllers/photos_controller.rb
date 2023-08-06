@@ -9,8 +9,8 @@ class PhotosController < ApplicationController
   
     def show
       @photo = Photo.find(params[:id])
-      @comments = @photo.comments
-      @comment = Comment.new
+      @kcomments = @photo.kcomments
+      @kcomment = Kcomment.new
     end
   
     def new

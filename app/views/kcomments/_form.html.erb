@@ -1,5 +1,5 @@
 <div class="container comentarios-show">
-    <%= form_with(model: [@photo, @comment], local: true) do |form| %>
+    <%= form_with(model: [@photo, @kcomment], local: true) do |form| %>
       <%= form.text_area :content %>
       <div class="boton"><%= form.submit "Enviar" %></div>
       </div>
