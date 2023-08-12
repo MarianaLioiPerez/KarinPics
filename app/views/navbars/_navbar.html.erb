@@ -1,17 +1,14 @@
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
   <div class="container">
     <%= link_to "Fotos", root_path, class:"navbar-brand" %>
-     <% if current_kuser && current_kuser.admin? %>
-    <%= link_to "Crear Nueva Foto", new_photo_path, class: "nav-link" %>
+     <% if current_tuser && current_tuser.admin? %>
+    <%= link_to "Nuevo Puesto", new_photo_path, class: "nav-link" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarNavDropdown">
         <ul class="navbar-nav me-auto">
-            <!-- <li>
-                <%= link_to "", root_path, class:"nav-link" %>
-            </li>-->
         </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
